@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMS Accessories | HWA IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --red:#ff2a2a;
+    --bg1:#0a0a0a;
+    --bg2:#1a1a1a;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:white;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    background:rgba(0,0,0,0.55);
+    border-bottom:1px solid rgba(255,255,255,0.10);
+    padding:14px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .logo{
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight:700;
+    letter-spacing:.5px;
+    white-space:nowrap;
+    line-height:1;
+  }
+  .logo span:first-child{color:white;}
+  .logo span:last-child{color:var(--red);}
+
+  nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  nav a{
+    text-decoration:none;color:#ddd;font-weight:500;
+    padding:8px 10px;border-radius:999px;transition:.2s;
+  }
+  nav a:hover{background:rgba(255,255,255,0.07);color:white;}
+
+  .hero{
+    padding: clamp(44px, 7vw, 70px) 16px 26px;
+    background: radial-gradient(circle at top, rgba(255,0,0,0.22), transparent 60%);
+    text-align:center;
+  }
+
+  .glass{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: clamp(18px, 3.5vw, 30px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero h1{margin:0 0 10px;font-size:clamp(26px,4.5vw,44px);line-height:1.12;}
+  .hero p{margin:0;color:rgba(255,255,255,0.86);font-size:clamp(14px,2.2vw,18px);}
+
+  .section{
+    padding: 26px 16px 60px;
+    max-width: 1100px;
+    margin:auto;
+  }
+  .section h2{
+    margin: 0 0 14px;
+    font-size: clamp(18px, 2.8vw, 26px);
+  }
+  .muted{color:rgba(255,255,255,.75);}
+
+  /* product grid */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap:16px;
+  }
+  .product{
+    border-radius:18px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.10);
+    padding:16px;
+    transition: transform .25s, border-color .25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .product:hover{
+    transform: translateY(-6px);
+    border-color: rgba(255,0,0,0.6);
+  }
+  .tag{
+    position:absolute; top:12px; right:12px;
+    font-size:12px; font-weight:700;
+    padding:6px 10px; border-radius:999px;
+    background: rgba(255,42,42,0.18);
+    border: 1px solid rgba(255,42,42,0.35);
+  }
+  .pimg{
+    height:140px;
+    border-radius:16px;
+    border:1px dashed rgba(255,255,255,0.18);
+    background:rgba(0,0,0,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:12px;
+    color:rgba(255,255,255,0.7);
+  }
+  .pname{font-weight:700;margin:0 0 6px;}
+  .pdesc{margin:0 0 10px;color:rgba(255,255,255,0.78);font-size:14px;line-height:1.4;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .price{font-weight:800}
+  .btn{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    background: linear-gradient(90deg, #ff0000, #ff4d4d);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border:0;
+    white-space:nowrap;
+  }
+  .btn.secondary{
+    background: rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.12);
+  }
+
+  footer{
+    text-align:center;
+    padding: 28px 16px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#aaa;
+    font-size:14px;
+  }
+
+  .wa-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:56px;height:56px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#25D366,#1ebe57);
+    color:white;
+    font-size:26px;
+    text-decoration:none;
+    box-shadow:0 8px 18px rgba(0,0,0,0.35);
+    z-index:100;
+  }
+
+  @media (max-width:520px){
+    header{padding:12px 14px;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><span>HWA</span> <span>IT</span></div>
+  <nav>
+    <a href="index.html#brands">⬅ Back</a>
+    <a href="#oms-products">Products</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="glass">
+    <h1>OMS Accessories</h1>
+    <p>Chargers • Power Banks • Handfree • AirPods / Earbuds — Available at HWA IT</p>
+  </div>
+</section>
+
+<section class="section" id="oms-products">
+  <div class="glass">
+    <h2>Products</h2>
+    <p class="muted">පහල items වෙනස් කරලා ඔයාගේ real products දාගන්න. “Ask Price” එක WhatsApp එකට යනවා.</p>
+
+    <div class="grid" style="margin-top:16px;">
+      <!-- Example products (edit these) -->
+      <div class="product">
+        <div class="tag">OMS</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">OMS Fast Charger</p>
+        <p class="pdesc">Fast charging • Safe • Good quality</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank" href="https://wa.me/94775050009?text=HWA%20IT%20-%20OMS%20Fast%20Charger%20price%20pls">Ask Price</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">OMS</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">OMS Power Bank</p>
+        <p class="pdesc">High capacity • Reliable • Warranty</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank" href="https://wa.me/94775050009?text=HWA%20IT%20-%20OMS%20Power%20Bank%20price%20pls">Ask Price</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">OMS</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">OMS Handfree</p>
+        <p class="pdesc">Clear sound • Comfortable • Bass</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank" href="https://wa.me/94775050009?text=HWA%20IT%20-%20OMS%20Handfree%20price%20pls">Ask Price</a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">OMS</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">OMS AirPods / Earbuds</p>
+        <p class="pdesc">Battery life • Noise reduction (model dependent)</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank" href="https://wa.me/94775050009?text=HWA%20IT%20-%20OMS%20AirPods%20price%20pls">Ask Price</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a class="btn" target="_blank" href="https://wa.me/94775050009?text=Hi%20HWA%20IT%20-%20Send%20OMS%20accessories%20price%20list">Get OMS Price List</a>
+      <a class="btn secondary" href="index.html#brands">Back to Brands</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 HWA IT — OMS Accessories
+</footer>
+
+<a href="https://wa.me/94775050009" target="_blank" class="wa-float">💬</a>
+
+</body>
+</html>
