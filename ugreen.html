@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UGREEN Accessories | HWA IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green:#17c964;
+    --green2:#34d399;
+    --bg1:#f7fffb;
+    --bg2:#eafff4;
+    --txt:#0b1220;
+    --muted: rgba(11,18,32,.70);
+    --line: rgba(11,18,32,.10);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:var(--txt);
+    background:
+      radial-gradient(circle at 15% 10%, rgba(23,201,100,.18), transparent 55%),
+      radial-gradient(circle at 85% 15%, rgba(52,211,153,.16), transparent 55%),
+      linear-gradient(135deg, var(--bg1), var(--bg2));
+    overflow-x:hidden;
+  }
+  a{ color:inherit; }
+
+  /* glass */
+  .glass{
+    background: rgba(255,255,255,0.58);
+    border: 1px solid rgba(255,255,255,0.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 22px;
+    padding: clamp(18px, 3.4vw, 30px);
+    box-shadow: 0 12px 34px rgba(17,24,39,0.10);
+    position:relative;
+    overflow:hidden;
+  }
+  .glass::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background:
+      radial-gradient(700px 250px at 20% 0%, rgba(23,201,100,.22), transparent 60%),
+      radial-gradient(560px 240px at 90% 10%, rgba(52,211,153,.18), transparent 60%);
+    opacity:.55;
+    pointer-events:none;
+  }
+  .glass::after{
+    content:"";
+    position:absolute;
+    width:140%; height:130%;
+    left:-20%; top:-70%;
+    background: radial-gradient(closest-side, rgba(255,255,255,.75), transparent 60%);
+    transform: rotate(12deg);
+    opacity:.40;
+    pointer-events:none;
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background: rgba(255,255,255,.55);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 14px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .logo{
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight:800;
+    letter-spacing:.4px;
+    white-space:nowrap;
+  }
+  .logo .hwa{ color:#111827; }
+  .logo .it{ color:#ff2a2a; } /* keep brand identity */
+  .logo .dot{ color:var(--green); font-weight:900; margin: 0 6px; }
+  .logo .ug{ color: #0f172a; font-weight:900; }
+  .logo .ugreen{ color: var(--green); font-weight:900; }
+
+  nav{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  nav a{
+    text-decoration:none;
+    color: rgba(11,18,32,.72);
+    font-weight:600;
+    padding:8px 10px;
+    border-radius:999px;
+    transition:.2s;
+  }
+  nav a:hover{ background: rgba(23,201,100,.10); color:#0b1220; }
+
+  .hero{
+    padding: clamp(44px, 7vw, 70px) 16px 26px;
+    text-align:center;
+  }
+
+  .hero h1{
+    margin:0 0 10px;
+    font-size: clamp(26px, 4.4vw, 44px);
+    line-height:1.12;
+  }
+  .hero p{
+    margin:0;
+    color: var(--muted);
+    font-size: clamp(14px, 2.2vw, 18px);
+  }
+
+  .section{
+    padding: 26px 16px 60px;
+    max-width: 1100px;
+    margin:auto;
+  }
+  .section h2{
+    margin:0 0 12px;
+    font-size: clamp(18px, 2.8vw, 26px);
+  }
+  .muted{ color: var(--muted); }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap:16px;
+    margin-top:16px;
+  }
+
+  .product{
+    border-radius:18px;
+    background: rgba(255,255,255,0.45);
+    border: 1px solid rgba(11,18,32,.08);
+    padding:16px;
+    transition: transform .25s, border-color .25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .product:hover{
+    transform: translateY(-6px);
+    border-color: rgba(23,201,100,.55);
+  }
+
+  .tag{
+    position:absolute; top:12px; right:12px;
+    font-size:12px; font-weight:800;
+    padding:6px 10px; border-radius:999px;
+    background: rgba(23,201,100,.12);
+    border: 1px solid rgba(23,201,100,.28);
+    color:#064e3b;
+  }
+
+  .pimg{
+    height:140px;
+    border-radius:16px;
+    border:1px dashed rgba(11,18,32,.18);
+    background: rgba(255,255,255,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:12px;
+    color: rgba(11,18,32,.70);
+  }
+
+  .pname{font-weight:800;margin:0 0 6px;}
+  .pdesc{margin:0 0 10px;color: rgba(11,18,32,.72);font-size:14px;line-height:1.4;}
+
+  .row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .price{font-weight:900}
+
+  .btn{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+    background: linear-gradient(90deg, var(--green), var(--green2));
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    border:0;
+    white-space:nowrap;
+    box-shadow: 0 10px 22px rgba(23,201,100,.18);
+  }
+  .btn.secondary{
+    background: rgba(255,255,255,0.65);
+    color:#0b1220;
+    border: 1px solid rgba(11,18,32,.10);
+    box-shadow:none;
+  }
+
+  footer{
+    text-align:center;
+    padding: 28px 16px;
+    border-top:1px solid rgba(11,18,32,.10);
+    color: rgba(11,18,32,.60);
+    font-size:14px;
+  }
+
+  .wa-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:56px;height:56px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#25D366,#1ebe57);
+    color:white;
+    font-size:26px;
+    text-decoration:none;
+    box-shadow:0 10px 22px rgba(17,24,39,0.18);
+    z-index:100;
+  }
+
+  @media (max-width:520px){
+    header{padding:12px 14px;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <span class="hwa">HWA</span> <span class="it">IT</span>
+    <span class="dot">•</span>
+    <span class="ugreen">UGREEN</span>
+  </div>
+
+  <nav>
+    <a href="index.html#brands">⬅ Back</a>
+    <a href="#ugreen-products">Products</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="glass" style="max-width:1100px;margin:0 auto;">
+    <h1>UGREEN — All Accessories</h1>
+    <p>Power Banks • Fast Chargers • Cables • Hubs / Adapters — Available at HWA IT</p>
+
+    <div style="margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn" target="_blank"
+         href="https://wa.me/94775050009?text=Hi%20HWA%20IT%20-%20Send%20UGREEN%20accessories%20price%20list">
+        Get UGREEN Price List
+      </a>
+      <a class="btn secondary" href="#ugreen-products">View Products</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ugreen-products">
+  <div class="glass">
+    <h2>Products</h2>
+    <p class="muted">
+.</p>
+
+    <div class="grid">
+      <!-- EDIT THESE PRODUCTS -->
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Fast Charger (20W / 25W)</p>
+        <p class="pdesc">PD / Quick Charge • Safe charging • Original</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Fast%20Charger%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Power Bank (10,000 / 20,000mAh)</p>
+        <p class="pdesc">High capacity • Fast output • Reliable</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Power%20Bank%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Type-C Cable</p>
+        <p class="pdesc">Durable • Fast charge/data • Multiple lengths</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Type-C%20Cable%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Hub / Adapter</p>
+        <p class="pdesc">USB-C hub • HDMI/USB • For laptops & phones (model dependent)</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Hub%20Adapter%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Earphones / Headset</p>
+        <p class="pdesc">Clear sound • Comfortable • Good bass</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Earphones%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="tag">UGREEN</div>
+        <div class="pimg">📷 Add Photo</div>
+        <p class="pname">UGREEN Car Charger</p>
+        <p class="pdesc">Fast charging • Dual port • Safe</p>
+        <div class="row">
+          <span class="price">Rs. —</span>
+          <a class="btn" target="_blank"
+             href="https://wa.me/94775050009?text=HWA%20IT%20-%20UGREEN%20Car%20Charger%20price%20pls">
+            Ask Price
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a class="btn" target="_blank"
+         href="https://wa.me/94775050009?text=Hi%20HWA%20IT%20-%20I%20need%20UGREEN%20accessories%20prices">
+        WhatsApp Quote
+      </a>
+      <a class="btn secondary" href="index.html#brands">Back to Brands</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 HWA IT — UGREEN Accessories
+</footer>
+
+<a href="https://wa.me/94775050009" target="_blank" class="wa-float">💬</a>
+
+</body>
+</html>
