@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HWA IT</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#ff2a2a;
+    --bg1:#0a0a0a;
+    --bg2:#1a1a1a;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    color: white;
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.55);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .logo span:first-child { color: white; }
+  .logo span:last-child { color: var(--red); }
+
+  nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: 0.2s;
+  }
+
+  nav a:hover{
+    background: rgba(255,255,255,0.07);
+    color: white;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: clamp(64px, 10vw, 120px) 16px;
+    background: radial-gradient(circle at top, rgba(255,0,0,0.25), transparent 60%);
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    margin: 0 0 10px;
+    line-height: 1.12;
+  }
+
+  .hero p{
+    margin: 0;
+    color: rgba(255,255,255,0.86);
+    font-size: clamp(14px, 2.2vw, 18px);
+  }
+
+  /* Glass */
+  .glass {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: clamp(18px, 3.5vw, 30px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  .section {
+    padding: clamp(42px, 6vw, 60px) 16px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .section h2{
+    font-size: clamp(20px, 3vw, 28px);
+    margin: 0 0 18px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.25s, border-color 0.25s;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,0,0,0.6);
+  }
+
+  /* Contact */
+  .contact{
+    margin-top: 8px;
+  }
+  .contact p { margin: 6px 0; }
+
+  .btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff0000, #ff4d4d);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer {
+    text-align: center;
+    padding: 34px 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 30px;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  /* Extra mobile tweaks */
+  @media (max-width: 520px) {
+    header{ padding: 12px 14px; }
+    nav{ width: 100%; gap: 10px; }
+    nav a{ padding: 8px 10px; font-size: 14px; }
+    .grid{ grid-template-columns: 1fr; }
+  }
+
+
+  .menu-toggle{
+    display:none;
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+    font-size:20px;
+    padding:6px 12px;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  @media (max-width: 700px){
+    .menu-toggle{ display:block; }
+
+    nav{
+      width:100%;
+      display:none;
+      flex-direction:column;
+      align-items:flex-start;
+      padding-top:8px;
+    }
+
+    nav.show{
+      display:flex;
+    }
+  }
+
+
+
+  .wa-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:56px;
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#25D366,#1ebe57);
+    color:white;
+    font-size:26px;
+    text-decoration:none;
+    box-shadow:0 8px 18px rgba(0,0,0,0.35);
+    z-index:100;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span>HWA</span> <span>IT</span></div>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <a href="#products">Products</a>
+    <a href="#brands">Brands</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="glass">
+    <h1>Premium Mobile Solutions</h1>
+    <p>Brand New & Used iPhones, Android Phones & Accessories</p>
+    <a class="btn" href="#contact">Contact Us</a>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <h2>Our Products</h2>
+  <div class="grid">
+    <div class="card">📱 Brand New iPhones</div>
+    <div class="card">📱 Used iPhones</div>
+    <div class="card">🤖 Brand New Android Phones</div>
+    <div class="card">🔋 Accessories</div>
+  </div>
+</section>
+
+<section class="section" id="brands">
+  <h2>Accessory Brands</h2>
+  <div class="grid">
+    <div class="card">
+      <div>
+        <div style="font-size:28px; margin-bottom:6px;">🟢</div>
+        <strong>UGREEN—all accessories</strong><br>
+        <small>Logo space available</small>
+      </div>
+    </div>
+    <div class="card">
+      <div>
+        <div style="font-size:28px; margin-bottom:6px;">🔴</div>
+        <strong>OMS accessories</strong><br>
+        <small>Logo space available</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section glass contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 Call / WhatsApp: 077 50 50009</p>
+  <p>📞 Call / WhatsApp: 0717444486</p>
+  <p>📧 Email: hwa.it@yahoo.com</p>
+
+  <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+    <a class="btn" href="https://wa.me/94775050009" target="_blank">💬 WhatsApp Chat</a>
+    <a class="btn" href="mailto:hwa.it@yahoo.com">✉️ Send Email</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 HWA IT — All Rights Reserved
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/94775050009" target="_blank" class="wa-float">💬</a>
+
+
+<script>
+function toggleMenu(){
+  document.getElementById('navMenu').classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
